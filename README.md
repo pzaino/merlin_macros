@@ -11,6 +11,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/pzaino/merlin_macros)
 ![GitHub code search count](https://img.shields.io/github/search?query=merlin_macros)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpzaino%2Fmerlin_macros.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpzaino%2Fmerlin_macros?ref=badge_shield&issueType=license)
+
 Status: **WORK IN PROGRESS**
 
 ## Description
