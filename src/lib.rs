@@ -66,7 +66,8 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     }
     let name_tokens = padded.iter().map(|b| quote! { #b });
 
-    let fn_vis = &input_fn.vis;
+    //let fn_vis = &input_fn.vis;
+    let fn_vis = quote!(pub);
     let fn_block = &input_fn.block;
     let fn_attrs = &input_fn.attrs;
     let fn_name = &input_fn.sig.ident;
