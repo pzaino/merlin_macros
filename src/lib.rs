@@ -45,7 +45,9 @@ use syn::{parse_macro_input, ItemFn};
 /// ```
 /// This will generate a static syscall entry point with the given ID and the
 /// function name as the syscall name.
-/// No need to declare the function as `pub extern "C"` the macro will
+/// Declaring the function as pub is optional, given that Merlin will
+/// always dispatch private API syscall via dispatcher.
+/// No need to declare the function as `extern "C"` the macro will
 /// take care of this. Also, no need to add the `#[no_mangle]` attribute, as
 /// the macro will do this too. And finally, no need to add the `#[link_section]` or `#allow(dead_code)`
 /// attributes, as the macro will do this too.
@@ -64,10 +66,18 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     }
     let name_tokens = padded.iter().map(|b| quote! { #b });
 
+    let fn_vis = &input_fn.vis;
+    let fn_block = &input_fn.block;
+    let fn_attrs = &input_fn.attrs;
+    let fn_name = &input_fn.sig.ident;
+    let fn_args = &input_fn.sig.inputs;
+    let fn_body = &fn_block;
+
     let gen = quote! {
+        #(#fn_attrs)*
         #[allow(dead_code)]
         #[allow(unused)]
-        pub extern "C" #input_fn
+        #fn_vis extern "C" #fn_name(#fn_args) #fn_body
 
         #[link_section = ".merlin_syscall_entries"]
         #[used]
