@@ -77,7 +77,7 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
         #(#fn_attrs)*
         #[allow(dead_code)]
         #[allow(unused)]
-        #fn_vis extern "C" #fn_name(#fn_args) #fn_body
+        #fn_vis extern "C" fn #fn_name(#fn_args) #fn_body
 
         #[link_section = ".merlin_syscall_entries"]
         #[used]
