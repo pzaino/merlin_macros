@@ -26,3 +26,10 @@ Then, in your Rust code, you can use the macros provided by this crate:
 use merlin_macros::macro_name;
 ```
 
+## Building documentation
+
+To build the documentation for this crate, run the following command:
+
+```sh
+cargo doc --open
+```
