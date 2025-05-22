@@ -1,0 +1,24 @@
+name: 💡 Feature Request
+description: Suggest a new feature or improvement
+labels: ["enhancement", "discussion"]
+body:
+  - type: textarea
+    attributes:
+      label: What do you want to see added?
+      description: Describe the feature or change in detail.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Why is this feature useful?
+      description: What problem does it solve? Who benefits from it?
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Any related work or prior art?
+      description: Links to existing implementations or inspiration are welcome.
+    validations:
+      required: false

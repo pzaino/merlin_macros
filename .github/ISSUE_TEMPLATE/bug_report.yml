@@ -1,0 +1,45 @@
+name: 🐞 Bug Report
+description: Report a problem with Merlin
+labels: ["bug", "triage"]
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly and concisely.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: List the steps to reproduce the issue, ideally from a clean build.
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Target platform
+      description: e.g. versatilepb, rpi2_3, apple_m1_3
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Toolchain version
+      description: rustc/cargo version, any cross-compilers or other relevant tools
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Additional context or logs
+      description: Add build output, QEMU logs, or screenshots if relevant
+    validations:
+      required: false
