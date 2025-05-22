@@ -1,9 +1,48 @@
+/*!
+ * Merlin OS
+ * Copyright (C) 2023-2025 by Paolo Fabio Zaino, all rights reserved.
+ *
+ * This file is part of the Merlin OS project and is licensed under the MPL 2.0 +
+ * the following restrictions:
+ *
+ *   - Based on Mozilla Public License 2.0
+ *   - Modifications to this file must be released under the same license
+ *   - Derivative works must credit the Merlin project and its contributors
+ *   - This software is provided AS IS, without warranty of any kind
+ *
+ * Full MPL 2.0 license text available in the root LICENSE file or at:
+ * <https://github.com/pzaino/merlin_macros/LICENSE>
+ */
+
+//!
+//! This file allows the use of the `#[merlin_syscall]` attribute macro.
+//! It is used to define a syscall entry point in the kernel.
+//! The macro takes an `id` argument, which is the syscall ID.
+//! The macro generates a static syscall entry point with the given ID and the
+//! function name as the syscall name.
+//! The function name is padded to 32 bytes with null bytes.
+//! The generated entry point is placed in the `.merlin_syscall_entries` section
+//! and is marked as used to prevent the linker from removing it.
+//! The generated entry point is also marked as no_mangle to prevent name
+//! mangling, so that it can be called from user space and C or Assembly code.
+//! SysCalls defined usign this macro are automatically registered in the Public ABI context
+//! and can be used by user space applications.
+
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, ItemFn};
 
+/// This macro is used to define a syscall entry point in the kernel.
+/// The macro takes an `id` argument, which is the syscall ID.
+/// Example of use:
+/// ```rust
+/// #[merlin_syscall(id = 42)]
+/// fn my_syscall() {
+///     // syscall implementation
+/// }
+/// ```
 #[proc_macro_attribute]
 pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     let args = parse_macro_input!(attr as SysCallArgs);
