@@ -2,6 +2,7 @@
 
 [![Security Audit](https://github.com/pzaino/merlin_macros/actions/workflows/rust-security.yml/badge.svg)](https://github.com/pzaino/merlin_macros/actions/workflows/rust-security.yml)
 ![CodeQL: ](https://github.com/pzaino/merlin_macros/actions/workflows/github-code-scanning/codeql/badge.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpzaino%2Fmerlin_macros.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpzaino%2Fmerlin_macros?ref=badge_shield&issueType=security)
 [![Build Test](https://github.com/pzaino/merlin_macros/actions/workflows/rust.yml/badge.svg)](https://github.com/pzaino/merlin_macros/actions/workflows/rust.yml)
 [![Rust](https://img.shields.io/badge/rust-1.70+-blue.svg)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/license-MPL%202.0-blue.svg)](LICENSE)
@@ -9,7 +10,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/pzaino/merlin_macros)
 ![GitHub contributors](https://img.shields.io/github/contributors/pzaino/merlin_macros)
 ![GitHub code search count](https://img.shields.io/github/search?query=merlin_macros)
-
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpzaino%2Fmerlin_macros.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpzaino%2Fmerlin_macros?ref=badge_shield&issueType=license)
 Status: **WORK IN PROGRESS**
 
 ## Description
