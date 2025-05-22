@@ -1,7 +1,12 @@
 [package]
 name = "merlin_macros"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+license = "MPL-2.0"
+readme = "README.md"
+repository = "https://github.com/pzaino/merlin_macros"
+homepage = "https://riscosocommunity.org/merlin"
+description = "Macros Crate for Merlin Operating System"
 
 [lib]
 proc-macro = true
