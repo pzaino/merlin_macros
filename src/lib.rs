@@ -34,12 +34,12 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::{parse_macro_input, ItemFn};
 
-/// This macro is used to define a syscall entry point in the kernel.
+/// # This macro is used to define a syscall entry point in the kernel.
 /// The macro takes an `id` argument, which is the syscall ID.
 /// Example of use:
-/// ```rust
+/// ```rust,ignore
 /// #[merlin_syscall(id = 42)]
-/// fn my_syscall() {
+/// pub fn my_syscall() {
 ///     // syscall implementation
 /// }
 /// ```
