@@ -39,10 +39,15 @@ use syn::{parse_macro_input, ItemFn};
 /// Example of use:
 /// ```rust,ignore
 /// #[merlin_syscall(id = 42)]
-/// pub fn my_syscall() {
+/// fn my_syscall() {
 ///     // syscall implementation
 /// }
 /// ```
+/// This will generate a static syscall entry point with the given ID and the
+/// function name as the syscall name.
+/// There is no need to define the function as `pub` or define them
+/// as `extern "C"` given merlin syscalls are always dispatched through
+/// a dispatcher and not called directly.
 #[proc_macro_attribute]
 pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     let args = parse_macro_input!(attr as SysCallArgs);
