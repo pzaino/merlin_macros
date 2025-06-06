@@ -39,7 +39,7 @@ use syn::{parse_macro_input, ItemFn};
 /// Example of use:
 /// ```rust,ignore
 /// #[merlin_syscall(id = 42)]
-/// extern "C" fn my_syscall() {
+/// fn my_syscall() {
 ///     // syscall implementation
 /// }
 /// ```
@@ -66,7 +66,7 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     }
     let name_tokens = padded.iter().map(|b| quote! { #b });
 
-    //let fn_vis = &input_fn.vis;
+    //let fn_vis = &input_fn.vis; // temporary commented out, until I update the kernel tests which still require an internal syscall to be declared as public
     let fn_vis = quote!(pub);
     let fn_block = &input_fn.block;
     let fn_attrs = &input_fn.attrs;
@@ -94,12 +94,15 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     gen.into()
 }
 
-// Now include the struct at the bottom of the file
+// Syn parser for the macro arguments
 use syn::{
     parse::{Parse, ParseStream},
     MetaNameValue, Result as SynResult,
 };
 
+//! This struct is used to parse the macro arguments.
+//! So SysCallArgs is referred to the macro arguments
+//! and not to the syscall arguments!
 struct SysCallArgs {
     id: u32,
 }
