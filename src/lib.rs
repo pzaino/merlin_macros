@@ -100,9 +100,9 @@ use syn::{
     MetaNameValue, Result as SynResult,
 };
 
-//! This struct is used to parse the macro arguments.
-//! So SysCallArgs is referred to the macro arguments
-//! and not to the syscall arguments!
+/// This struct is used to parse the macro arguments.
+/// So SysCallArgs is referred to the macro arguments
+/// and not to the syscall arguments!
 struct SysCallArgs {
     id: u32,
 }
