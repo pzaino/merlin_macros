@@ -9,6 +9,7 @@ homepage = "https://riscosocommunity.org/merlin"
 description = "Macros Crate for Merlin Operating System"
 
 [lib]
+path = "src/lib.rs"
 proc-macro = true
 
 [dependencies]
