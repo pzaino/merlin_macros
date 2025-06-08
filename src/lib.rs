@@ -37,6 +37,7 @@
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
+use quote::format_ident;
 use quote::quote;
 use syn::{parse_macro_input, ItemFn};
 
@@ -70,6 +71,7 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
     for (i, b) in fn_name_str.bytes().enumerate().take(32) {
         padded[i] = b;
     }
+    let entry_ident = format_ident!("MERLIN_SYSCALL_ENTRY_{}", fn_name);
     let name_tokens = padded.iter().map(|b| quote! { #b });
 
     //let fn_vis = &input_fn.vis; // temporary commented out, until I update the kernel tests which still require an internal syscall to be declared as public
@@ -89,7 +91,7 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
         #[link_section = ".merlin_syscall_entries"]
         #[used]
         #[no_mangle]
-        pub static MERLIN_SYSCALL_ENTRY: crate::kernel::syscalls::syscall_macro::StaticSysCallEntry =
+        pub static #entry_ident:  crate::kernel::syscalls::syscall_macro::StaticSysCallEntry =
             crate::kernel::syscalls::syscall_macro::StaticSysCallEntry {
                 id: #syscall_id,
                 name: &[#(#name_tokens),*],
