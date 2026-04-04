@@ -90,7 +90,6 @@ pub fn merlin_syscall(attr: TokenStream, item: TokenStream) -> TokenStream {
         #fn_vis extern "C" fn #fn_name(#fn_args) #fn_body
 
         #[cfg_attr(all(not(test), not(target_os = "macos")), link_section = ".merlin_syscall_entries")]
-        #[cfg_attr(all(not(test), target_os = "macos"), link_section = "__DATA,.merlin_syscall_entries")]
         #[used]
         #[no_mangle]
         #[allow(non_upper_case_globals)]
