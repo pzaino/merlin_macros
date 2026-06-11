@@ -47,3 +47,9 @@ To build the documentation for this crate, run the following command:
 ```sh
 cargo doc --open
 ```
+
+## Contributing
+
+We welcome contributions to the Merlin macros! If you have suggestions, improvements, or bug fixes, please open an issue or submit a pull request on the GitHub repository.
+
+For more info on contributing please check the [CONTRIBUTING](./CONTRIBUTING.md) file for all the details, thank you.
