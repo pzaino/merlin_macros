@@ -20,6 +20,8 @@ Status: **WORK IN PROGRESS**
 
 This crate provides a set of macros for the RISC OS Merlin Operating System. It is designed to be used with the Merlin development environment and provides a convenient way to define and use macros in your code.
 
+If you don't know what RISC OS Merlin is or you are looking for the Merlin Kernel itself, please refer to the [Project Presentation](https://paolozaino.wordpress.com/portfolio/merlin-a-modern-memory-safe-kernel-and-platform/).
+
 ## License
 
 RISC OS Merlin is Copyright (c) by Paolo Fabio Zaino, all rights reserved.
